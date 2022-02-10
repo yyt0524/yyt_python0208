@@ -13,7 +13,7 @@ def main():
     server = socket(family=AF_INET, type=SOCK_STREAM)
     # 2.绑定IP地址和端口(端口用于区分不同的服务)
     # 同一时间在同一个端口上只能绑定一个服务否则报错
-    server.bind(('192.168.1.2', 6789))
+    server.bind(('192.168.8.138', 6789))
     # 3.开启监听 - 监听客户端连接到服务器
     # 参数512可以理解为连接队列的大小
     server.listen(512)
@@ -26,7 +26,8 @@ def main():
         client, addr = server.accept()
         print(str(addr) + '连接到了服务器.')
         # 5.发送数据
-        client.send(str(datetime.now()).encode('utf-8'))
+        # client.send(str(datetime.now()).encode('utf-8'))
+        client.send('yyt'.encode('utf-8'))
         # 6.断开连接
         client.close()
 
